@@ -1,101 +1,93 @@
 import React from 'react';
-import { ArrowDownRight, Sparkles, Check } from 'lucide-react';
+import { ArrowDownRight, Sparkles } from 'lucide-react';
 import { BRAND } from '../data/content';
+import {
+  RevealOnScroll,
+  FloralSprig,
+  SatinBowAccent,
+  CurvedSectionDivider
+} from './Ornaments';
 
 export default function HeroSection({ onNavigateToForm }) {
   return (
     <section
       id="topo"
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-24 lg:py-24 border-b border-lumiere-gold/25"
+      className="relative overflow-hidden pt-8 sm:pt-12 lg:pt-16 bg-lumiere-cream"
     >
-      {/* Subtle Decorative Accents */}
+      {/* Soft Watercolor Atmospheric Glows */}
       <div
-        className="pointer-events-none absolute -top-28 -left-28 w-96 h-96 rounded-full bg-lumiere-rose/35 blur-3xl"
+        className="pointer-events-none absolute -top-20 left-0 w-[30rem] h-[30rem] rounded-full bg-lumiere-rose/45 blur-3xl"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-lumiere-sage/35 blur-3xl"
+        className="pointer-events-none absolute top-1/3 -right-24 w-[28rem] h-[28rem] rounded-full bg-lumiere-sage/40 blur-3xl"
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column: Editorial Copy & Conversion */}
-          <div className="lg:col-span-6 space-y-6 sm:space-y-8">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-lumiere-paper border border-lumiere-gold/40">
-              <Sparkles className="w-3.5 h-3.5 text-lumiere-gold" aria-hidden="true" />
-              <span className="text-[11px] uppercase tracking-[0.24em] text-lumiere-cocoa font-semibold">
-                Coleção Assinatura • Pronta Entrega na Boutique
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          {/* Left Column: Poetic Editorial Typography */}
+          <RevealOnScroll className="lg:col-span-6 space-y-6 sm:space-y-7 text-center lg:text-left">
+            {/* Delicate Satin Pill Tag */}
+            <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-lumiere-rose/45 border border-lumiere-gold/45 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-lumiere-goldDark" aria-hidden="true" />
+              <span className="text-[11px] uppercase tracking-[0.22em] text-lumiere-ink font-semibold">
+                Coleção Assinatura &bull; Pronta Entrega na Boutique
               </span>
             </div>
 
-            <div className="space-y-4">
-              <p className="font-script text-2xl sm:text-3xl text-lumiere-goldDark">
+            {/* Highlighted Cursive Phrase & Grand Serif Headline */}
+            <div className="space-y-3">
+              <p className="font-script text-3xl sm:text-4xl text-lumiere-goldDark">
                 {BRAND.slogan}
               </p>
               <h1
                 id="hero-heading"
-                className="font-serif text-4xl sm:text-5xl xl:text-[3.45rem] font-normal text-lumiere-ink leading-[1.12] tracking-tight"
+                className="font-serif text-4xl sm:text-5xl xl:text-[3.55rem] font-normal text-lumiere-ink leading-[1.1] tracking-tight"
               >
-                A sofisticação dos doces de casamento, agora para todos os seus momentos.
+                A sofisticação dos doces de casamento,{' '}
+                <span className="italic font-normal text-lumiere-goldDark">
+                  agora para todos os seus momentos.
+                </span>
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-lumiere-cocoa leading-relaxed max-w-xl font-light">
-              Conheça <strong className="font-serif italic font-semibold text-xl text-lumiere-ink">La Vie en Douceur</strong>, uma seleção exclusiva de seis doces franco-brasileiros, criada para transformar pequenos instantes em experiências inesquecíveis.
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg text-lumiere-cocoa leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
+              Conheça <strong className="font-serif italic font-semibold text-2xl text-lumiere-ink">La Vie en Douceur</strong>, uma seleção exclusiva de seis doces franco-brasileiros, criada para transformar pequenos instantes em experiências inesquecíveis.
             </p>
 
-            {/* Luxury Price & Packaging Box */}
-            <div className="bg-lumiere-paper/90 border border-lumiere-gold/40 p-5 sm:p-6 shadow-card max-w-xl">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-lumiere-gold/25">
-                <div>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-lumiere-muted block">
-                    Caixa de Degustação • 6 Unidades Artesanais
-                  </span>
-                  <span className="font-serif text-2xl sm:text-3xl font-semibold text-lumiere-ink">
-                    La Vie en Douceur
-                  </span>
-                </div>
-                <div className="sm:text-right">
-                  <span className="text-[11px] uppercase tracking-[0.18em] text-lumiere-muted block">
-                    Valor por caixa
+            {/* Organic Editorial Price & Availability Strip (No Rigid Box) */}
+            <div className="pt-2 pb-1 max-w-xl mx-auto lg:mx-0">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-7 py-4 px-6 rounded-3xl bg-lumiere-paper/85 border border-lumiere-gold/40 shadow-card">
+                <div className="flex items-baseline gap-2.5">
+                  <span className="text-xs uppercase tracking-[0.2em] text-lumiere-cocoa">
+                    Caixa com 6 joias:
                   </span>
                   <span className="font-serif text-3xl sm:text-4xl font-semibold text-lumiere-ink">
                     R$ 89,90
                   </span>
                 </div>
+                <span className="hidden sm:block h-8 w-px bg-lumiere-gold/35" aria-hidden="true" />
+                <p className="text-xs text-lumiere-cocoa leading-snug text-center sm:text-left">
+                  Embalagem rígida com laço rosa-claro <br className="hidden sm:inline" />
+                  <span className="text-lumiere-goldDark font-semibold">
+                    &bull; Pronta entrega conforme estoque
+                  </span>
+                </p>
               </div>
-
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-4 text-xs sm:text-sm text-lumiere-cocoa">
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-lumiere-gold shrink-0" aria-hidden="true" />
-                  <span>Caixa rígida off-white com laço rosa-claro</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-lumiere-gold shrink-0" aria-hidden="true" />
-                  <span>6 mini sobremesas em divisórias individuais</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-lumiere-gold shrink-0" aria-hidden="true" />
-                  <span>Técnica francesa e sabores brasileiros</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-lumiere-gold shrink-0" aria-hidden="true" />
-                  <span>Pronta entrega, sujeita ao estoque da loja</span>
-                </li>
-              </ul>
             </div>
 
-            {/* Primary CTA Button */}
-            <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-4">
+            {/* Primary & Secondary CTAs */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
                 href="#reserva"
                 onClick={(e) => {
                   e.preventDefault();
                   onNavigateToForm();
                 }}
-                className="btn-luxury-primary group"
+                className="btn-luxury-primary group w-full sm:w-auto"
               >
                 <span>Quero viver essa experiência</span>
                 <ArrowDownRight
@@ -105,46 +97,74 @@ export default function HeroSection({ onNavigateToForm }) {
               </a>
               <a
                 href="#colecao"
-                className="btn-luxury-outline text-center"
+                className="btn-luxury-outline w-full sm:w-auto text-center"
               >
-                Conhecer os 6 doces
+                Descobrir os 6 sabores
               </a>
             </div>
-          </div>
+          </RevealOnScroll>
 
-          {/* Right Column: Hero Editorial Photograph */}
-          <div className="lg:col-span-6">
-            <div className="relative mx-auto max-w-2xl lg:max-w-none">
-              {/* Decorative Sage & Rose Offset Frame */}
+          {/* Right Column: Asymmetric French Arch Frame & Floral Accents */}
+          <RevealOnScroll delay={150} className="lg:col-span-6 relative">
+            <div className="relative mx-auto max-w-xl lg:max-w-none pt-4 pb-6 px-2 sm:px-6">
+              {/* Floating Botanical Sprigs */}
+              <FloralSprig className="w-28 sm:w-36 absolute -top-2 right-2 z-20 opacity-90" />
+              <FloralSprig flip className="w-28 sm:w-36 absolute -bottom-3 left-0 z-20 opacity-90" />
+
+              {/* Offset Sage & Blush Arch Backdrop */}
               <div
-                className="absolute -inset-3 sm:-inset-4 bg-gradient-to-tr from-lumiere-rose/45 via-lumiere-cream to-lumiere-sage/45 border border-lumiere-gold/35 -z-10"
+                className="absolute inset-x-6 top-6 bottom-2 rounded-t-[11rem] rounded-b-[2.75rem] bg-gradient-to-b from-lumiere-rose/50 via-lumiere-paper to-lumiere-sage/55 border border-lumiere-gold/35 -rotate-1"
                 aria-hidden="true"
               />
 
-              <figure className="relative bg-lumiere-paper p-2.5 sm:p-4 border border-lumiere-gold/50 shadow-editorial">
-                <div className="relative overflow-hidden aspect-[4/3]">
+              {/* Main Curved Editorial Frame */}
+              <figure className="relative z-10 bg-lumiere-paper p-3 sm:p-4 rounded-t-[10rem] sm:rounded-t-[12rem] rounded-b-[2.5rem] border border-lumiere-gold/60 shadow-editorial">
+                {/* Satin Bow at Crown */}
+                <SatinBowAccent className="w-16 sm:w-20 mx-auto -mt-7 mb-1 relative z-20" />
+
+                <div className="relative overflow-hidden rounded-t-[9rem] sm:rounded-t-[11rem] rounded-b-[2rem] aspect-[4/3] sm:aspect-[16/11]">
                   <img
                     src="/images/hero-box.jpg"
                     alt="Fotografia editorial da caixa rígida off-white La Vie en Douceur aberta sobre mesa de mármore com as seis mini sobremesas franco-brasileiras, detalhes dourados, laço de cetim rosa-claro, flores delicadas e xícara de porcelana"
-                    className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+                    className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out hover:scale-105"
                     fetchpriority="high"
                   />
-                  <div className="absolute inset-2.5 border border-lumiere-cream/60 pointer-events-none" aria-hidden="true" />
+                  {/* Inner thin golden arch hairline */}
+                  <div
+                    className="absolute inset-2.5 rounded-t-[8.5rem] sm:rounded-t-[10.5rem] rounded-b-[1.6rem] border border-lumiere-cream/75 pointer-events-none"
+                    aria-hidden="true"
+                  />
                 </div>
 
-                <figcaption className="mt-3 pt-2.5 border-t border-lumiere-gold/25 flex flex-wrap items-center justify-between gap-2 text-xs text-lumiere-cocoa">
-                  <span className="font-serif italic text-sm text-lumiere-ink">
-                    Caixa La Vie en Douceur — Edição Boutique
+                <figcaption className="mt-3 px-3 pb-1 flex flex-wrap items-center justify-between gap-2 text-xs text-lumiere-cocoa">
+                  <span className="font-serif italic text-base text-lumiere-ink">
+                    Caixa La Vie en Douceur &mdash; 6 criações autorais
                   </span>
-                  <span className="uppercase tracking-[0.18em] text-[10px] px-2.5 py-1 bg-lumiere-sage/50 text-lumiere-ink font-semibold">
-                    Disponível à pronta entrega*
+                  <span className="uppercase tracking-[0.18em] text-[10px] px-3 py-1 rounded-full bg-lumiere-sage/55 text-lumiere-ink font-semibold">
+                    Edição Boutique
                   </span>
                 </figcaption>
               </figure>
+
+              {/* Floating Cameo Medallion Overlapping Bottom-Right */}
+              <div className="hidden sm:flex items-center gap-3 absolute -bottom-2 right-6 z-20 bg-lumiere-paper/95 backdrop-blur-sm px-5 py-3 rounded-full border border-lumiere-gold shadow-editorial">
+                <span className="w-2.5 h-2.5 rounded-full bg-lumiere-rose border border-lumiere-gold" />
+                <div className="text-left">
+                  <span className="block text-[10px] uppercase tracking-[0.2em] text-lumiere-goldDark font-bold">
+                    Para presentear ou saborear
+                  </span>
+                  <span className="font-serif italic text-sm text-lumiere-ink">
+                    Tradição francesa &amp; alma brasileira
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </div>
+
+      {/* Organic Curved Divider into Section 2 */}
+      <CurvedSectionDivider fill="#FBF8F3" />
     </section>
   );
 }

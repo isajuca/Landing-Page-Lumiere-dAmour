@@ -41,4 +41,33 @@
   }
 
   .btn-luxury-primary {
-    @apply btn-luxury bg-lumiere-ink text-lumiere-cream border border-lumiere-gold shadow-editorial hover:bg-lumiere-gold hover:text-lumiere-ink hover:shadow-goldGlow hover:-transl
+    @apply btn-luxury bg-lumiere-ink text-lumiere-cream border border-lumiere-gold shadow-editorial hover:bg-lumiere-gold hover:text-lumiere-ink hover:shadow-goldGlow hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-luxury-outline {
+    @apply btn-luxury bg-lumiere-paper/80 text-lumiere-ink border border-lumiere-gold/65 hover:bg-lumiere-rose/45 hover:border-lumiere-gold hover:-translate-y-0.5;
+  }
+
+  /* French Architectural Arch Frame */
+  .french-arch {
+    border-radius: 9999px 9999px 1.75rem 1.75rem;
+  }
+
+  /* Wedding Invitation Double Ornamental Frame */
+  .invitation-card {
+    position: relative;
+    border-radius: 2rem;
+    background: linear-gradient(180deg, #FBF8F3 0%, #F7F2E9 100%);
+    border: 1px solid rgba(197, 160, 100, 0.5);
+    box-shadow: 0 24px 60px -24px rgba(42, 34, 28, 0.1);
+  }
+
+  .invitation-card::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(197, 160, 100, 0.28);
+    pointer-events: none;
+  }
+}

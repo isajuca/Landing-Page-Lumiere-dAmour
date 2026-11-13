@@ -126,4 +126,54 @@ export default function Navbar({ onNavigateToForm }) {
         {/* Mobile Menu Toggle Button */}
         <button
           type="button"
- 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="xl:hidden p-2.5 rounded-full text-lumiere-ink border border-lumiere-gold/45 bg-lumiere-paper/90 hover:bg-lumiere-rose/35 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-lumiere-gold shrink-0"
+          aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+        >
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </div>
+
+      {/* Mobile & Tablet Drawer */}
+      {mobileMenuOpen && (
+        <div className="xl:hidden bg-lumiere-paper/98 backdrop-blur-md border-b border-lumiere-gold/35 px-6 py-7 space-y-5 shadow-editorial">
+          <p className="font-script text-2xl text-center text-lumiere-goldDark">
+            {BRAND.slogan}
+          </p>
+          <GoldFleuronDivider />
+          <nav aria-label="Navegação móvel" className="flex flex-col items-center space-y-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="text-xs uppercase tracking-[0.22em] text-lumiere-ink hover:text-lumiere-goldDark py-2 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <div className="pt-2 flex flex-col items-center gap-3 border-t border-lumiere-gold/20">
+            <div className="flex items-center gap-2 text-xs text-lumiere-cocoa">
+              <span>Caixa La Vie en Douceur (6 un.)</span>
+              <span className="text-lumiere-gold">&bull;</span>
+              <span className="font-serif text-lg font-semibold text-lumiere-ink">{BRAND.price}</span>
+            </div>
+            <a
+              href="#reserva"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                onNavigateToForm();
+              }}
+              className="btn-luxury-primary w-full max-w-xs text-center"
+            >
+              Quero viver essa experiência
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
