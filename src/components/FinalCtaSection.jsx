@@ -1,38 +1,51 @@
 import React from 'react';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
+import {
+  RevealOnScroll,
+  GoldFleuronDivider,
+  FloralSprig,
+  SatinBowAccent
+} from './Ornaments';
 
 export default function FinalCtaSection({ onNavigateToForm }) {
   return (
     <section
       aria-labelledby="final-cta-heading"
-      className="py-16 sm:py-24 bg-lumiere-cream border-b border-lumiere-gold/30 relative overflow-hidden"
+      className="py-16 sm:py-24 bg-lumiere-cream relative overflow-hidden"
     >
-      {/* Subtle Romantic Backdrop */}
+      {/* Soft Romantic Glow */}
       <div
-        className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[42rem] h-[22rem] rounded-full bg-lumiere-rose/40 blur-3xl"
+        className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-96 bg-gradient-to-r from-lumiere-rose/30 via-lumiere-paper to-lumiere-sage/30 blur-3xl"
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="bg-lumiere-paper border border-lumiere-gold/50 shadow-editorial overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
-            {/* Left Column: Striking Editorial Product Image */}
-            <div className="lg:col-span-6 relative aspect-[16/11] lg:aspect-auto lg:h-full">
-              <img
-                src="/images/hero-box.jpg"
-                alt="Composição elegante da caixa La Vie en Douceur da Lumière d'Amour com as seis mini sobremesas artesanais franco-brasileiras"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-              <div
-                className="absolute inset-3 border border-lumiere-cream/65 pointer-events-none"
-                aria-hidden="true"
-              />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <RevealOnScroll className="relative rounded-[3rem] bg-gradient-to-br from-lumiere-paper via-lumiere-cream to-lumiere-rose/35 border border-lumiere-gold/55 p-7 sm:p-12 lg:p-16 shadow-editorial">
+          <FloralSprig className="w-32 sm:w-40 absolute -top-6 left-6 z-20 opacity-90" />
+          <FloralSprig flip className="w-32 sm:w-40 absolute -bottom-6 right-6 z-20 opacity-90" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column: Arched Product Portrait */}
+            <div className="lg:col-span-5">
+              <div className="french-arch bg-lumiere-paper p-3 border border-lumiere-gold/55 shadow-card max-w-md mx-auto">
+                <div className="relative overflow-hidden french-arch aspect-[4/3]">
+                  <img
+                    src="/images/hero-box.jpg"
+                    alt="Composição elegante da caixa La Vie en Douceur da Lumière d'Amour com as seis mini sobremesas artesanais franco-brasileiras"
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-2.5 french-arch border border-lumiere-cream/70 pointer-events-none"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Right Column: Emotional Final Call to Action */}
-            <div className="lg:col-span-6 p-8 sm:p-12 lg:p-14 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-lumiere-rose/45 border border-lumiere-gold/40">
+            {/* Right Column: Emotional Final Invitation */}
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lumiere-rose/50 border border-lumiere-gold/45">
                 <Sparkles className="w-3.5 h-3.5 text-lumiere-goldDark" aria-hidden="true" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-lumiere-ink font-semibold">
                   La Vie en Douceur &bull; R$ 89,90
@@ -41,14 +54,16 @@ export default function FinalCtaSection({ onNavigateToForm }) {
 
               <h2
                 id="final-cta-heading"
-                className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-lumiere-ink leading-[1.15] font-normal"
+                className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] text-lumiere-ink leading-[1.14] font-normal"
               >
                 A vida fica mais doce quando celebramos os pequenos momentos.
               </h2>
 
-              <p className="text-base sm:text-lg text-lumiere-cocoa leading-relaxed font-light">
-                Descubra La Vie en Douceur e permita-se viver uma experiência de sabor, delicadeza e amor.
+              <p className="text-base sm:text-lg text-lumiere-cocoa leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Descubra <strong className="font-serif italic font-semibold text-xl text-lumiere-ink">La Vie en Douceur</strong> e permita-se viver uma experiência de sabor, delicadeza e amor.
               </p>
+
+              <GoldFleuronDivider className="lg:justify-start pt-1" />
 
               <div className="pt-2">
                 <a
@@ -72,7 +87,7 @@ export default function FinalCtaSection({ onNavigateToForm }) {
               </p>
             </div>
           </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

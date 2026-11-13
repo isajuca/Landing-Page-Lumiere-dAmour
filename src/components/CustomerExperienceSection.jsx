@@ -1,6 +1,12 @@
 import React from 'react';
 import { Gift, Coffee, Award } from 'lucide-react';
 import { OCCASIONS } from '../data/content';
+import {
+  RevealOnScroll,
+  GoldFleuronDivider,
+  FloralSprig,
+  CurvedSectionDivider
+} from './Ornaments';
 
 const OCCASION_ICONS = {
   presentear: Gift,
@@ -13,13 +19,13 @@ export default function CustomerExperienceSection() {
     <section
       id="experiencia"
       aria-labelledby="experience-heading"
-      className="py-16 sm:py-24 bg-lumiere-paper border-b border-lumiere-gold/25"
+      className="pt-12 sm:pt-20 bg-lumiere-paper relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
         {/* Section Heading */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-14 sm:mb-16">
+        <RevealOnScroll className="max-w-3xl mx-auto text-center space-y-4 mb-14 sm:mb-18">
           <span className="inline-block text-xs uppercase tracking-[0.26em] text-lumiere-goldDark font-semibold">
-            Momentos Lumière d&apos;Amour
+            L&apos;Art de Vivre
           </span>
           <h2
             id="experience-heading"
@@ -27,80 +33,90 @@ export default function CustomerExperienceSection() {
           >
             Uma experiência para saborear, compartilhar e recordar.
           </h2>
-          <p className="text-base sm:text-lg text-lumiere-cocoa leading-relaxed font-light">
-            Seja em uma mesa acolhedora dentro da nossa boutique ou no conforto da sua casa, <strong className="font-serif italic font-semibold text-lumiere-ink">La Vie en Douceur</strong> transforma o instante em memória afetiva.
+          <p className="text-base sm:text-lg text-lumiere-cocoa leading-relaxed max-w-2xl mx-auto">
+            Seja em uma mesa acolhedora dentro da nossa confeitaria ou no conforto da sua casa, <strong className="font-serif italic font-semibold text-lumiere-ink">La Vie en Douceur</strong> transforma o instante em memória afetiva.
           </p>
-          <div className="w-20 h-px bg-lumiere-gold mx-auto" aria-hidden="true" />
-        </div>
+          <GoldFleuronDivider variant="floral" className="pt-1" />
+        </RevealOnScroll>
 
-        {/* Main Lifestyle Image Feature */}
-        <div className="mb-14 sm:mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 bg-lumiere-cream border border-lumiere-gold/45 shadow-editorial overflow-hidden">
-            <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto">
+        {/* Wide Editorial Photograph + Legible Emotional Quote Overlay */}
+        <RevealOnScroll className="mb-20 sm:mb-24 relative">
+          <FloralSprig flip className="w-32 absolute -top-5 right-4 z-20 opacity-90" />
+
+          <div className="relative rounded-[2.75rem] bg-lumiere-cream p-3 sm:p-5 border border-lumiere-gold/55 shadow-editorial">
+            <div className="relative overflow-hidden rounded-[2.25rem] aspect-[16/10] sm:aspect-[21/10]">
               <img
                 src="/images/experience-couple.jpg"
                 alt="Duas pessoas adultas compartilhando as sobremesas da caixa La Vie en Douceur em uma mesa elegante dentro da confeitaria Lumière d'Amour, com flores rosa-claro, detalhes dourados e iluminação quente"
                 loading="lazy"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center transition-transform duration-1000 hover:scale-103"
+              />
+              <div
+                className="absolute inset-3 rounded-[1.85rem] border border-lumiere-cream/65 pointer-events-none"
+                aria-hidden="true"
               />
             </div>
 
-            <div className="lg:col-span-5 p-7 sm:p-10 lg:p-12 flex flex-col justify-center space-y-5 border-t lg:border-t-0 lg:border-l border-lumiere-gold/30">
-              <span className="text-[11px] uppercase tracking-[0.24em] text-lumiere-goldDark font-bold">
-                O Ritual da Degustação
+            {/* Legible Emotional Overlay Card */}
+            <div className="relative lg:absolute lg:bottom-8 lg:left-8 lg:right-8 mt-4 lg:mt-0 z-20 max-w-2xl mx-auto lg:mx-0 bg-lumiere-paper/95 backdrop-blur-md border border-lumiere-gold/60 rounded-3xl p-6 sm:p-8 shadow-editorial">
+              <span className="font-script text-2xl sm:text-3xl text-lumiere-goldDark block mb-1">
+                O encanto de abrir o laço de cetim...
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl text-lumiere-ink leading-snug">
-                O encanto de abrir o laço de cetim e escolher por qual doce começar
-              </h3>
-              <p className="text-sm sm:text-base text-lumiere-cocoa leading-relaxed">
-                Cada detalhe da experiência foi desenhado para despertar os sentidos: o toque aveludado da caixa rígida off-white, o perfume delicado de baunilha e frutas frescas ao erguer a tampa e a descoberta de seis receitas que convidam à conversa e à contemplação.
+              <p className="font-serif text-xl sm:text-2xl italic text-lumiere-ink leading-relaxed">
+                &ldquo;Há momentos que pedem pausa: o perfume sutil de baunilha ao erguer a tampa, o brilho do chocolate espelhado e a alegria silenciosa de dividir seis pequenas joias com quem torna a vida mais doce.&rdquo;
               </p>
-              <div className="pt-2 border-t border-lumiere-gold/25">
-                <p className="font-script text-2xl text-lumiere-goldDark">
-                  &ldquo;Detalhes refinados para celebrar o amor.&rdquo;
-                </p>
-              </div>
             </div>
           </div>
-        </div>
+        </RevealOnScroll>
 
-        {/* Three Consumption Occasions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 sm:gap-8">
+        {/* Three Consumption Occasions — Arched Editorial Triptych */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           {OCCASIONS.map((occasion, idx) => {
             const Icon = OCCASION_ICONS[occasion.id] || Gift;
+            const isCenter = idx === 1;
+
             return (
-              <article
+              <RevealOnScroll
                 key={occasion.id}
-                className="bg-lumiere-cream border border-lumiere-gold/35 p-7 sm:p-8 flex flex-col justify-between shadow-card hover:border-lumiere-gold transition-all duration-300"
+                delay={idx * 120}
+                as="article"
+                className={`relative french-arch p-8 sm:p-9 border transition-all duration-500 flex flex-col justify-between text-center ${
+                  isCenter
+                    ? 'bg-gradient-to-b from-lumiere-rose/40 via-lumiere-cream to-lumiere-paper border-lumiere-gold/65 shadow-editorial md:-translate-y-3'
+                    : 'bg-lumiere-cream/90 border-lumiere-gold/40 shadow-card hover:border-lumiere-gold'
+                }`}
               >
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] uppercase tracking-[0.2em] px-3 py-1 bg-lumiere-rose/45 text-lumiere-ink font-semibold">
-                      {occasion.tag}
-                    </span>
-                    <div className="w-10 h-10 rounded-full bg-lumiere-paper border border-lumiere-gold/45 flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-lumiere-goldDark" aria-hidden="true" />
-                    </div>
+                  {/* Top Medallion Icon */}
+                  <div className="w-14 h-14 rounded-full bg-lumiere-paper border border-lumiere-gold/55 flex items-center justify-center mx-auto shadow-sm">
+                    <Icon className="w-5 h-5 text-lumiere-goldDark stroke-[1.3]" aria-hidden="true" />
                   </div>
 
-                  <h3 className="font-serif text-2xl text-lumiere-ink font-semibold">
+                  <span className="inline-block text-[10px] uppercase tracking-[0.22em] px-3.5 py-1 rounded-full bg-lumiere-sage/45 text-lumiere-ink font-semibold">
+                    {occasion.tag}
+                  </span>
+
+                  <h3 className="font-serif text-2xl sm:text-3xl text-lumiere-ink font-normal">
                     {occasion.title}
                   </h3>
 
-                  <p className="text-sm text-lumiere-cocoa leading-relaxed">
+                  <p className="text-sm sm:text-base text-lumiere-cocoa leading-relaxed">
                     {occasion.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-lumiere-gold/25 flex items-center justify-between text-xs text-lumiere-ink font-serif italic">
-                  <span>{occasion.highlight}</span>
-                  <span className="not-italic text-lumiere-gold font-sans text-[11px]">0{idx + 1}</span>
+                <div className="mt-7 pt-4 border-t border-lumiere-gold/25">
+                  <span className="font-serif italic text-base text-lumiere-goldDark">
+                    {occasion.highlight}
+                  </span>
                 </div>
-              </article>
+              </RevealOnScroll>
             );
           })}
         </div>
       </div>
+
+      <CurvedSectionDivider fill="#F7F2E9" />
     </section>
   );
 }

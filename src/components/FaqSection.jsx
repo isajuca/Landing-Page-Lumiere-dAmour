@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import { FAQ_ITEMS } from '../data/content';
+import {
+  RevealOnScroll,
+  GoldFleuronDivider,
+  CurvedSectionDivider
+} from './Ornaments';
 
 export default function FaqSection() {
   const [openId, setOpenId] = useState(FAQ_ITEMS[0].id);
@@ -13,11 +18,11 @@ export default function FaqSection() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="py-16 sm:py-24 bg-lumiere-paper border-b border-lumiere-gold/25"
+      className="pt-12 sm:pt-20 bg-lumiere-paper relative overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
         {/* Section Title */}
-        <div className="text-center space-y-4 mb-12 sm:mb-16">
+        <RevealOnScroll className="text-center space-y-4 mb-12 sm:mb-16">
           <span className="inline-block text-xs uppercase tracking-[0.26em] text-lumiere-goldDark font-semibold">
             Esclarecimentos &amp; Cuidados
           </span>
@@ -27,28 +32,21 @@ export default function FaqSection() {
           >
             Ainda tem alguma dúvida?
           </h2>
-          <p className="text-base text-lumiere-cocoa leading-relaxed font-light max-w-2xl mx-auto">
-            Reunimos abaixo as principais informações sobre disponibilidade, composição, apresentação para presente e consumo em nossa boutique.
+          <p className="text-base text-lumiere-cocoa leading-relaxed max-w-xl mx-auto">
+            Informações essenciais sobre pronta entrega, apresentação para presente, consumo na boutique e alergênicos.
           </p>
-          <div className="w-20 h-px bg-lumiere-gold mx-auto" aria-hidden="true" />
-        </div>
+          <GoldFleuronDivider variant="floral" className="pt-1" />
+        </RevealOnScroll>
 
-        {/* Accordion List */}
-        <div className="space-y-3.5">
+        {/* Minimalist Fine-Line Accordion */}
+        <RevealOnScroll className="border-t border-b border-lumiere-gold/40 divide-y divide-lumiere-gold/25">
           {FAQ_ITEMS.map((item, index) => {
             const isOpen = openId === item.id;
             const panelId = `${item.id}-panel`;
             const buttonId = `${item.id}-button`;
 
             return (
-              <div
-                key={item.id}
-                className={`border transition-colors duration-300 ${
-                  isOpen
-                    ? 'bg-lumiere-cream border-lumiere-gold shadow-card'
-                    : 'bg-lumiere-cream/65 border-lumiere-gold/35 hover:border-lumiere-gold/70'
-                }`}
-              >
+              <div key={item.id} className="py-2 transition-colors duration-300">
                 <h3>
                   <button
                     id={buttonId}
@@ -56,37 +54,53 @@ export default function FaqSection() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggleItem(item.id)}
-                    className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-lumiere-gold"
+                    className="w-full py-5 px-2 text-left flex items-center justify-between gap-6 group focus:outline-none focus-visible:ring-2 focus-visible:ring-lumiere-gold rounded-lg"
                   >
-                    <span className="font-serif text-xl sm:text-2xl font-semibold text-lumiere-ink flex items-baseline gap-3">
-                      <span className="text-xs font-sans uppercase tracking-[0.18em] text-lumiere-goldDark">
-                        0{index + 1}.
+                    <span className="font-serif text-xl sm:text-2xl font-normal text-lumiere-ink group-hover:text-lumiere-goldDark transition-colors flex items-baseline gap-4">
+                      <span className="font-serif italic text-base text-lumiere-goldDark shrink-0">
+                        0{index + 1}
                       </span>
                       <span>{item.question}</span>
                     </span>
-                    <ChevronDown
-                      className={`w-5 h-5 text-lumiere-goldDark shrink-0 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180' : ''
+                    <span
+                      className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
+                        isOpen
+                          ? 'bg-lumiere-rose/55 border-lumiere-gold text-lumiere-ink'
+                          : 'border-lumiere-gold/45 text-lumiere-goldDark group-hover:border-lumiere-gold'
                       }`}
                       aria-hidden="true"
-                    />
+                    >
+                      {isOpen ? (
+                        <Minus className="w-3.5 h-3.5 stroke-[1.5]" />
+                      ) : (
+                        <Plus className="w-3.5 h-3.5 stroke-[1.5]" />
+                      )}
+                    </span>
                   </button>
                 </h3>
 
+                {/* Smooth Grid Row Height Transition */}
                 <div
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  hidden={!isOpen}
-                  className="px-6 pb-6 pt-1 text-sm sm:text-base text-lumiere-cocoa leading-relaxed border-t border-lumiere-gold/20"
+                  className={`grid transition-all duration-500 ease-out ${
+                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  }`}
                 >
-                  {item.answer}
+                  <div className="overflow-hidden">
+                    <p className="pb-6 pl-9 pr-4 text-sm sm:text-base text-lumiere-cocoa leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
             );
           })}
-        </div>
+        </RevealOnScroll>
       </div>
+
+      <CurvedSectionDivider fill="#F7F2E9" />
     </section>
   );
 }

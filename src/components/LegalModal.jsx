@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
 import { LEGAL_TEXTS } from '../data/content';
+import { GoldFleuronDivider } from './Ornaments';
 
 export default function LegalModal({ modalType, onClose }) {
   useEffect(() => {
@@ -25,10 +26,10 @@ export default function LegalModal({ modalType, onClose }) {
       onClick={onClose}
     >
       <div
-        className="bg-lumiere-paper border border-lumiere-gold max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-10 shadow-editorial relative"
+        className="invitation-card max-w-2xl w-full max-h-[85vh] overflow-y-auto p-7 sm:p-11 relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-start justify-between gap-4 border-b border-lumiere-gold/30 pb-4 mb-6">
+        <div className="flex items-start justify-between gap-4 pb-4 mb-4">
           <div>
             <span className="text-[11px] uppercase tracking-[0.22em] text-lumiere-goldDark font-bold block">
               Lumière d&apos;Amour &bull; Documentação Institucional
@@ -45,11 +46,13 @@ export default function LegalModal({ modalType, onClose }) {
             type="button"
             onClick={onClose}
             aria-label="Fechar janela"
-            className="p-2 border border-lumiere-gold/40 text-lumiere-ink hover:bg-lumiere-rose/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-lumiere-gold"
+            className="p-2.5 rounded-full border border-lumiere-gold/45 text-lumiere-ink hover:bg-lumiere-rose/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-lumiere-gold"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
+
+        <GoldFleuronDivider className="mb-6" />
 
         <div className="space-y-5 text-sm text-lumiere-cocoa leading-relaxed">
           {content.sections.map((sec) => (
@@ -62,14 +65,14 @@ export default function LegalModal({ modalType, onClose }) {
           ))}
         </div>
 
-        <div className="mt-8 pt-4 border-t border-lumiere-gold/30 flex items-center justify-between gap-4">
-          <span className="text-xs text-lumiere-muted">
+        <div className="mt-8 pt-4 border-t border-lumiere-gold/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="text-xs text-lumiere-muted text-center sm:text-left">
             Projeto acadêmico demonstrativo. Produtos, preços e pedidos fictícios.
           </span>
           <button
             type="button"
             onClick={onClose}
-            className="px-6 py-2.5 bg-lumiere-ink text-lumiere-cream text-xs uppercase tracking-[0.18em] font-bold border border-lumiere-gold hover:bg-lumiere-gold hover:text-lumiere-ink transition-colors"
+            className="px-7 py-2.5 rounded-full bg-lumiere-ink text-lumiere-cream text-xs uppercase tracking-[0.18em] font-bold border border-lumiere-gold hover:bg-lumiere-gold hover:text-lumiere-ink transition-colors"
           >
             Fechar
           </button>

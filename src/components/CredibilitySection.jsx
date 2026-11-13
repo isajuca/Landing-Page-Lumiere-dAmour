@@ -1,5 +1,11 @@
 import React from 'react';
 import { Feather, HeartHandshake, Palette, Sparkles } from 'lucide-react';
+import {
+  RevealOnScroll,
+  GoldFleuronDivider,
+  FloralSprig,
+  CurvedSectionDivider
+} from './Ornaments';
 
 export default function CredibilitySection() {
   const pillars = [
@@ -33,11 +39,11 @@ export default function CredibilitySection() {
     <section
       id="diferenciais"
       aria-labelledby="credibility-heading"
-      className="py-16 sm:py-24 bg-lumiere-cream border-b border-lumiere-gold/25"
+      className="pt-12 sm:pt-20 bg-lumiere-cream relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-14 sm:mb-16">
+        <RevealOnScroll className="max-w-3xl mx-auto text-center space-y-4 mb-14 sm:mb-20">
           <span className="inline-block text-xs uppercase tracking-[0.26em] text-lumiere-goldDark font-semibold">
             Savoir-Faire &amp; Inspiração
           </span>
@@ -47,40 +53,52 @@ export default function CredibilitySection() {
           >
             A delicadeza está em cada detalhe.
           </h2>
-          <p className="text-base sm:text-lg text-lumiere-cocoa leading-relaxed font-light">
-            Na <strong className="font-semibold text-lumiere-ink">Lumière d&apos;Amour</strong>, acreditamos que um doce fino é um gesto de amor materializado em açúcar, textura e perfume.
+          <p className="text-base sm:text-lg text-lumiere-cocoa leading-relaxed max-w-2xl mx-auto">
+            Na <strong className="font-semibold text-lumiere-ink">Lumière d&apos;Amour</strong>, acreditamos que cada doce fino é um gesto de amor esculpido em textura, aroma e memória.
           </p>
-          <div className="w-20 h-px bg-lumiere-gold mx-auto" aria-hidden="true" />
-        </div>
+          <GoldFleuronDivider variant="floral" className="pt-1" />
+        </RevealOnScroll>
 
-        {/* Two-Column Editorial Visual + Pillars */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left: Dual Editorial Photo Composition (Chef + Macro Details) */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* Primary Photo: Pastry Chef Working */}
-            <figure className="bg-lumiere-paper p-3 sm:p-4 border border-lumiere-gold/45 shadow-editorial">
-              <div className="relative overflow-hidden aspect-[16/10]">
-                <img
-                  src="/images/pastry-chef.jpg"
-                  alt="Confeiteira profissional da Lumière d'Amour preparando delicadamente os doces em cozinha sofisticada, vestindo uniforme off-white com detalhes rosa-claro e dourado"
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]"
-                />
-              </div>
-              <figcaption className="mt-2.5 flex items-center justify-between text-xs text-lumiere-cocoa">
-                <span className="font-serif italic text-sm text-lumiere-ink">
-                  Finalização manual no atelier Lumière d&apos;Amour
-                </span>
-                <span className="uppercase tracking-[0.16em] text-[10px] text-lumiere-goldDark font-semibold">
-                  Cuidado Artesanal
-                </span>
-              </figcaption>
-            </figure>
+        {/* Two-Column Editorial Composition: Layered Arch Photography Left + Ornate Text Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left: Layered Arch Photo of Pastry Chef + Overlapping Macro Cameo */}
+          <RevealOnScroll className="lg:col-span-6 relative pb-12 sm:pb-16">
+            <div className="relative max-w-lg mx-auto lg:mx-0">
+              <FloralSprig className="w-32 absolute -top-6 -left-4 z-20 opacity-90" />
 
-            {/* Secondary Photo: Macro Close-up of Textures */}
-            <figure className="bg-lumiere-paper p-3 sm:p-4 border border-lumiere-gold/45 shadow-card">
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                <div className="sm:col-span-7 relative overflow-hidden aspect-[16/10]">
+              {/* Soft Rose Offset Arch */}
+              <div
+                className="absolute inset-0 translate-x-3 translate-y-3 french-arch bg-lumiere-rose/45 border border-lumiere-gold/35"
+                aria-hidden="true"
+              />
+
+              {/* Main Arch Frame: Pastry Chef */}
+              <figure className="relative z-10 french-arch bg-lumiere-paper p-3.5 sm:p-4 border border-lumiere-gold/55 shadow-editorial">
+                <div className="relative overflow-hidden french-arch aspect-[4/5]">
+                  <img
+                    src="/images/pastry-chef.jpg"
+                    alt="Confeiteira profissional da Lumière d'Amour preparando delicadamente os doces em cozinha sofisticada, vestindo uniforme off-white com detalhes rosa-claro e dourado"
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-2.5 french-arch border border-lumiere-cream/70 pointer-events-none"
+                    aria-hidden="true"
+                  />
+                </div>
+                <figcaption className="mt-3 px-2 flex items-center justify-between text-xs text-lumiere-cocoa">
+                  <span className="font-serif italic text-sm text-lumiere-ink">
+                    Finalização artesanal no atelier Lumière d&apos;Amour
+                  </span>
+                  <span className="uppercase tracking-[0.18em] text-[10px] text-lumiere-goldDark font-bold">
+                    Haute Pâtisserie
+                  </span>
+                </figcaption>
+              </figure>
+
+              {/* Overlapping Macro Details Cameo Frame */}
+              <figure className="relative sm:absolute mt-6 sm:mt-0 sm:-bottom-10 sm:-right-6 z-20 w-full sm:w-72 bg-lumiere-paper p-2.5 rounded-[2rem] border border-lumiere-gold shadow-editorial">
+                <div className="overflow-hidden rounded-[1.5rem] aspect-[16/10]">
                   <img
                     src="/images/details-closeup.jpg"
                     alt="Close-up das texturas dos doces destacando o brilho espelhado do chocolate, a delicadeza do macaron rosa e o acabamento da tartelette de frutas vermelhas"
@@ -88,57 +106,60 @@ export default function CredibilitySection() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <figcaption className="sm:col-span-5 space-y-2 px-1">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-lumiere-goldDark font-bold block">
-                    Texturas em Close-up
+                <figcaption className="pt-2 px-2 pb-1 text-center">
+                  <span className="font-serif italic text-xs text-lumiere-ink block">
+                    Brilho espelhado, frutas frescas e folha de ouro
                   </span>
-                  <p className="font-serif text-lg text-lumiere-ink leading-snug">
-                    Brilho espelhado, cremosidade aveludada e frutas frescas selecionadas.
-                  </p>
-                  <p className="text-xs text-lumiere-cocoa leading-relaxed">
-                    Cada unidade recebe atenção individual para manter o padrão visual e sensorial da nossa vitrine.
-                  </p>
                 </figcaption>
-              </div>
-            </figure>
-          </div>
+              </figure>
+            </div>
+          </RevealOnScroll>
 
-          {/* Right: 4 Craftsmanship Pillars */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="bg-lumiere-paper border border-lumiere-gold/40 p-6 sm:p-8 space-y-6 shadow-card">
-              <div className="space-y-2 border-b border-lumiere-gold/25 pb-5">
-                <span className="font-script text-2xl sm:text-3xl text-lumiere-goldDark block">
-                  Detalhes refinados para celebrar o amor.
-                </span>
-                <h3 className="font-serif text-2xl sm:text-3xl text-lumiere-ink">
-                  A arte da confeitaria fina pensada para o seu presente
-                </h3>
-              </div>
+          {/* Right: Open Editorial Typography with Delicate Ornamental Details */}
+          <RevealOnScroll delay={140} className="lg:col-span-6 space-y-8">
+            <div className="space-y-2 border-b border-lumiere-gold/30 pb-6">
+              <span className="font-script text-3xl sm:text-4xl text-lumiere-goldDark block">
+                Detalhes refinados para celebrar o amor.
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl text-lumiere-ink leading-snug">
+                O rigor de uma <em>maison</em> francesa unido ao afeto brasileiro
+              </h3>
+            </div>
 
-              <div className="space-y-6">
-                {pillars.map((pillar) => {
-                  const Icon = pillar.icon;
-                  return (
-                    <div key={pillar.title} className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-lumiere-rose/45 border border-lumiere-gold/45 flex items-center justify-center shrink-0 mt-0.5">
-                        <Icon className="w-4 h-4 text-lumiere-ink" aria-hidden="true" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="font-serif text-xl font-semibold text-lumiere-ink">
+            <div className="space-y-7">
+              {pillars.map((pillar, index) => {
+                const Icon = pillar.icon;
+                return (
+                  <div
+                    key={pillar.title}
+                    className="group flex items-start gap-5 pb-6 border-b border-lumiere-gold/20 last:border-b-0 last:pb-0"
+                  >
+                    <div className="w-11 h-11 rounded-full bg-lumiere-paper border border-lumiere-gold/55 flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:bg-lumiere-rose/45 transition-colors">
+                      <Icon className="w-4 h-4 text-lumiere-goldDark stroke-[1.4]" aria-hidden="true" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-2">
+                        <span className="font-serif italic text-sm text-lumiere-goldDark">
+                          0{index + 1}
+                        </span>
+                        <span className="w-4 h-px bg-lumiere-gold/50" aria-hidden="true" />
+                        <h4 className="font-serif text-xl sm:text-2xl font-semibold text-lumiere-ink">
                           {pillar.title}
                         </h4>
-                        <p className="text-sm text-lumiere-cocoa leading-relaxed">
-                          {pillar.description}
-                        </p>
                       </div>
+                      <p className="text-sm sm:text-base text-lumiere-cocoa leading-relaxed">
+                        {pillar.description}
+                      </p>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </div>
+
+      <CurvedSectionDivider fill="#FBF8F3" />
     </section>
   );
 }
