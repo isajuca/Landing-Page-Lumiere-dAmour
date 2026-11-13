@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #F7F2E9;
+    color: #2A221C;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #F7F2E9;
+    /* Subtle luxury cotton wedding paper texture */
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(244, 214, 212, 0.25) 0%, transparent 45%),
+      radial-gradient(circle at 85% 25%, rgba(217, 223, 201, 0.22) 0%, transparent 45%),
+      radial-gradient(rgba(197, 160, 100, 0.055) 1px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 24px 24px;
+  }
+}
+
+@layer components {
+  /* Luxury Pill Buttons */
+  .btn-luxury {
+    @apply inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-xs sm:text-sm uppercase tracking-[0.18em] font-sans font-bold transition-all duration-500 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-lumiere-gold focus-visible:ring-offset-2 focus-visible:ring-offset-lumiere-cream;
+  }
+
+  .btn-luxury-primary {
+    @apply btn-luxury bg-lumiere-ink text-lumiere-cream border border-lumiere-gold shadow-editorial hover:bg-lumiere-gold hover:text-lumiere-ink hover:shadow-goldGlow hover:-transl
